@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jQuery Equal Height plugin version 0.1</title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+
+        	/* Page Style */
+	        body {
+				font: 14px/1.3 sans-serif;
+				color: #333;
+				margin: 20px 120px;
+			}
+
+			pre {
+				background: #eee;
+				font-size: 13px;
+				padding: 10px;
+				overflow: auto;
+			}
+
+			#an {
+				position: fixed;
+				top: 20px;
+				left: 20px;
+				background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAAgCAYAAACmaK65AAAACXBIWXMAAAsTAAALEwEAmpwYAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAACqUlEQVR42mI0NjZmIBKoAbEtENsDsTIQSwExHxAzM5APDgBxAIl6xKDucABiLSCWAWIhqDs+AvEzIL4LxAeB+DAQ3yLGUIAAYiFCjTUQZwKxJ9RCagJ+EtSqAHEaEAdBIwIbEARiBSC2AuJYIH4HxNuBeDoQH8VnOEAAMeGREwfiyUC8F4ijaRAIIPCHCDWgmC6App5SPIGADQhB3b4X6hdxXAoBAghXQJgD8S4gzgFidoaBA6DstxyI+4FYmgJz2KF+2QX1GwYACCBsAeEKxGuBWI9hYIE8EK8G4lAqmqkH9ZsrugRAAKEHhAkQL6Aw9KkBhKDusKKB2dJQs02QBQECCDkgRIB4NjQ5DiQAuakXWivQMsvNhvoZDAACCDkgaoHYgGHgQTAQJ9DBHgOon8EAIIBgAWEExKmDIBD4kB1HB5AK9TsDQADBAgJUonIOgoAAFYy6dLSPE+p3BoAAYoI2QHwHQSCAGncxA2AvyO8KAAEECgg75EJjAIESEJsOgL0gv9sBBBATjUtnUoAlEHMPkN0OAAEECgjVQRIQWgNotypAADENgnYDDMgOZFMeIIBAASEwSAJCcADt5gcIICaGwQNYB9JugAACBcT7QRIQ/wfSboAAAgXEc4ZRwAAQQKCAuDUaDAwMAAEECogDo8HAwAAQQKCAOATEr0d6QAAEECggHgLxppEeEAABBKs+pwLxt5EcEAABBAuI80A8ayQHBEAAITeoWoD43EgNCIAAQg6ItwyQEZsnIzEgAAIIvYkNShEJIzEwAAIIW18DNCsUBC03RgwACCBcna7TQOwOxBOB+PtICAiAAMLX+wQ1skBzjk5AvAiI39DAfhYcbLr3PgECiBjLT0AxaPLVhgGyLAA0Mw2aMeIjEJiEwHs09rsBCohPAAEGAAGrSjBQEUFjAAAAAElFTkSuQmCC');
+				display: block;
+			    height: 32px;
+			    width: 66px;
+			}
+
+			/* Demo Style */
+        	.grid {
+        		margin: 1em -2%;
+        		clear: both;
+        		overflow: hidden;
+        		width: 100%;
+        	}
+
+        	.grid-cell {
+        		float: left;
+        		margin: 0 2%;
+        		width: 29%;
+        	}
+
+        	#grid1 .grid-cell {
+        		background: #ddd;
+        	}
+
+        	#grid2 .grid-cell {
+        		background: #ccc;
+        	}
+
+        	#grid3 .grid-cell {
+        		background: #bbb;
+        	}
+
+        	.box {
+        		background: #aaa;
+        		padding: 5px;
+        		border: solid 1px black;
+        	}
+
+        </style>
+    </head>
+    <body>
+
+    	<header>
+			<a href="http://andreasnylin.com/" id="an"></a>
+			<h1>jQuery Equal Height plugin version 0.1</h1>
+		</header>
+
+    	<p>
+    		<b>Example 1</b> - a simple grid with no extra markup.
+    	</p>
+    	<div id="grid1" class="grid">
+    		<div class="grid-cell">
+    			Lorem ipsum dolor sit amet, ea tantas veritus eos, unum nemore audiam mea ea
+    		</div>
+    		<div class="grid-cell">
+    			Dicam affert ad est. Mei facer putent graecis te, cu qui error simul mediocrem. Eum sonet dolor scripta eu, ei mel doctus facilisis scripserit.
+    		</div>
+    		<div class="grid-cell">
+    			Eos placerat invenire ut, veri aperiam nam ut. Solet accusata in sed, cum et possim insolens, vel et aeterno tacimates instructior. Ius an animal impedit inciderint. Ad est sumo vidisse principes, cu tibique sapientem sea, sale illud oportere et vis. His cu virtute alterum voluptaria, pri hendrerit contentiones ut.
+    		</div>
+    	</div>
+
+		<p>
+    		<b>Example 2</b> - A grid with extra markup. The columns are not direct child elements of the grid element.
+    	</p>
+
+    	<div id="grid2" class="grid">
+    		<div class="grid-inner-wrapper">
+    			<div class="grid-cell">
+    				Lorem ipsum dolor sit amet, ea tantas veritus eos, unum nemore audiam mea ea
+	    		</div>
+	    		<div class="grid-cell">
+	    			Dicam affert ad est. Mei facer putent graecis te, cu qui error simul mediocrem. Eum sonet dolor scripta eu, ei mel doctus facilisis scripserit.
+	    		</div>
+	    		<div class="grid-cell">
+	    			Eos placerat invenire ut, veri aperiam nam ut. Solet accusata in sed, cum et possim insolens, vel et aeterno tacimates instructior. Ius an animal impedit inciderint. Ad est sumo vidisse principes, cu tibique sapientem sea, sale illud oportere et vis. His cu virtute alterum voluptaria, pri hendrerit contentiones ut.
+	    		</div>
+    		</div>
+    	</div>
+
+    	<p>
+    		<b>Example 3</b> - A grid with extra markup. The grid columns contains a box element that should have equal height.
+    	</p>
+
+    	<div id="grid3" class="grid">
+			<div class="grid-cell">
+				<div class="box">
+					Lorem ipsum dolor sit amet, ea tantas veritus eos, unum nemore audiam mea ea
+				</div>
+    		</div>
+    		<div class="grid-cell">
+    			<div class="box">
+    				Dicam affert ad est. Mei facer putent graecis te, cu qui error simul mediocrem. Eum sonet dolor scripta eu, ei mel doctus facilisis scripserit.
+    			</div>
+    		</div>
+    		<div class="grid-cell">
+    			<div class="box">
+    				Eos placerat invenire ut, veri aperiam nam ut. Solet accusata in sed, cum et possim insolens, vel et aeterno tacimates instructior. Ius an animal impedit inciderint. Ad est sumo vidisse principes, cu tibique sapientem sea, sale illud oportere et vis. His cu virtute alterum voluptaria, pri hendrerit contentiones ut.
+    			</div>
+    		</div>
+    	</div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="jQuery.equalHeight.js"></script>
+        <script>
+
+        	// Example 1 - a simple grid with no extra markup.
+        	// Direct child elements of the grid are used as grid cells
+        	$('#grid1').equalHeight();
+
+        	// Example 2 - A grid with extra markup. The columns are not direct child elements of the grid element.
+        	// We need to specify which elements should be used as grid cells
+        	$('#grid2').equalHeight({ columnSelector: '.grid-cell' });
+
+        	// Example 3 - A grid with extra markup. The grid columns contains a box element that should have equal height.
+        	// We need to specify which elements hieght should be set to
+        	$('#grid3').equalHeight({ columnSelector: '.box' });
+
+        </script>
+    </body>
+</html>
